@@ -41,5 +41,12 @@ int main(int argc, char *argv[] ) {
     
     check_word(user_input);
 
-    printf("%s is %d characters long with %d spaces.", user_input, stats.chars, stats.spaces);
+    //Debug
+    printf("DEBUG LINE: %s is %d characters long with %d spaces.", user_input, stats.chars, stats.spaces);
+    
+    //result
+    printf("%d", stats.chars);
+
+    //ALWAYS RETURN
+    return 0;
 }
