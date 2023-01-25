@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-const int TRUE = 1;
-const int FALSE = 0;
+const int TRUE          =   1;
+const int FALSE         =   0;
 
 //  if you modify characters here, be sure to update 
 //      spchar_enum
 //  &   the switch in get_stats
-char spchar_array[] = { '\0', ' ', '\t', '\n' };
+char spchar_array[]     =   { '\0', ' ', '\t', '\n' };
 
 enum spchar_enum {
     EOL,
@@ -17,11 +17,11 @@ enum spchar_enum {
 } special_chars;
 
 int find_spIndex (char input) {
-    int spchar_total   =   *(&spchar_array + 1) - spchar_array;
+    int spchar_total    =   *(&spchar_array + 1) - spchar_array;
     int found           =   FALSE;
-    for (int index = 0; 
-            index <= spchar_total; 
-            index++) {
+    for (int    index   =   0; 
+                index   <=  spchar_total; 
+                index++ ) {
         if (spchar_array[index] == input) {
             found = TRUE;
             return index;
@@ -77,14 +77,16 @@ void get_stats (char* string) {
     stats.newlines    =   line_count;
 }
 
+
+//  Program Entry Point
 int main(int argc, char *argv[] ) {
-    char   user_input[100]   =   " ";
+    char   user_input[100]   =  "";
 
     //  concat all 
-    int     concat_index    =   1;
+    int     concat_index    =   1;  //  index will skip 0
     do
     {
-        strcat_s(user_input, 150, argv[concat_index]);
+        strcat_s(user_input, 100, argv[concat_index]);
     } while (concat_index++ < (argc - 1));  // if the index is less than the arg count
     
     get_stats(user_input);
